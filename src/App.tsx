@@ -86,23 +86,27 @@ export function App() {
       </fieldset>
 
       <div className="flex h-8 items-center justify-between">
-        {todos.length > 0 && !isLoading && !isAdding && (
-          <span
-            data-testid="todo-count"
-            className="text-sm font-medium leading-6 text-gray-900"
-          >
-            {activeTodoCount} items left
-          </span>
-        )}
-        {hasCompletedTodos && (
-          <button
-            onClick={clearCompleted}
-            disabled={isUpdating}
-            className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Clear completed
-          </button>
-        )}
+        <div>
+          {todos.length > 0 && !isLoading && !isAdding && (
+            <span
+              data-testid="todo-count"
+              className="text-sm font-medium leading-6 text-gray-900"
+            >
+              {activeTodoCount} items left
+            </span>
+          )}
+        </div>
+        <div>
+          {hasCompletedTodos && !isLoading && (
+            <button
+              onClick={clearCompleted}
+              disabled={isUpdating}
+              className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Clear completed
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
